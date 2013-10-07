@@ -38,10 +38,10 @@ dashDemo.app.factory('$exceptionHandler', ['$injector', function ($injector) {
     return function (exception, cause) {
         //_logger.error(exception.message, exception.stack);
 
-        // broadcast events to show user facing alerts and to hide any loading indicators
-        var rootScope = $injector.get('$rootScope');
-        if (rootScope) {
-            //rootScope.$broadcast(...)
-        }
+        // broadcast events for any subscriber to consume
+        //var rootScope = $injector.get('$rootScope');
+        //if (rootScope) {
+        //    rootScope.$broadcast(...)
+        //}
     };
 }]);
