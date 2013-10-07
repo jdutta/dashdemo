@@ -18,7 +18,27 @@
 
 'use strict';
 
-dashDemo.app.controller('WidgetsGalleryController', ['$scope', function ($scope) {
+dashDemo.app.controller('WidgetsGalleryController', ['$scope', '$rootScope', 'events', function ($scope, $rootScope, events) {
 
+    $scope.widgets = [
+        {
+            name: 'Pi Calculator',
+            directiveName: 'dd-widget-picalc'
+        },
+        {
+            name: 'Yahoo Finance Quotes',
+            directiveName: 'dd-widget-yfiquotes'
+        }
+    ];
+
+    /**
+     * When you click on a widget name in the gallery, broadcast an event with the widget object.
+     *
+     * @param widget
+     */
+    $scope.onWidgetSelected = function (widget) {
+        console.log('widget selected', widget);
+        $rootScope.$broadcast(events.ADD_WIDGET_D, widget);
+    };
 
 }]);

@@ -1,3 +1,8 @@
 <div class="dd-widgets-gallery">
-    widgets gallery template
+    <header>Widgets gallery</header>
+    <ul class="dd-widgets">
+        <li ng-repeat="widget in widgets" class="dd-widget" ng-click="onWidgetSelected(widget)">
+            {{ widget.name }}
+        </li>
+    </ul>
 </div>
