@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" ng-app="dashDemo.app" ng-controller="AppController">
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard Demo</title>
+    <meta name="description" content="">
+    <link type="text/css" rel="stylesheet" href="css/normalize.css">
+    <link type="text/css" rel="stylesheet" href="css/jquery-ui.css">
+    <link type="text/css" rel="stylesheet" href="css/app.css">
+    <script type="text/javascript">
+        // Top level namespace
+        var dashDemo = {};
+    </script>
+    <script src="lib/src/jquery-1.8.3.js"></script>
+    <script src="lib/src/jquery-ui.js"></script>
+    <script src="lib/src/angular.js"></script>
+    <script src="js/core/app.js"></script>
+    <script src="js/core/app-controller.js"></script>
+</head>
+<body>
+    <div ng-include="'templates/app.html'" class="dd-app-container"></div>
+</body>
+</html>
