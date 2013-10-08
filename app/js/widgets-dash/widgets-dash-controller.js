@@ -21,12 +21,12 @@
 dashDemo.app.controller('WidgetsDashController', ['$scope', 'events', 'util', function ($scope, events, util) {
 
     function handleWidgetAdded(widget) {
-        var uniqWidget = {
+        var widgetInstance = {
             uid: util.getUniqueId(),
             widget: widget
         };
 
-        $scope.addWidgetToDom(uniqWidget);
+        $scope.addWidgetToDom(widgetInstance);
     }
 
     $scope.__name = 'widgets-dash-controller';

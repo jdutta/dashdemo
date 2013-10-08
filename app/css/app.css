@@ -44,7 +44,7 @@ body {
     bottom: 0;
 }
 
-.dd-widget-picalc .dd-widget-picalc-data {
+.dd-widget-picalc .dd-widget-data,  .dd-widget-yfiquotes .dd-widget-data {
     position: absolute;
     top: 30px;
 }

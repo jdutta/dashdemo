@@ -18,17 +18,15 @@
 
 'use strict';
 
-dashDemo.app.controller('WidgetsGalleryController', ['$scope', '$rootScope', 'events', function ($scope, $rootScope, events) {
+dashDemo.app.controller('WidgetsGalleryController', ['$scope', '$rootScope', 'events', 'widgetPicalcDef', 'widgetYfiquotesDef',
+function ($scope, $rootScope, events, widgetPicalcDef, widgetYfiquotesDef) {
 
+    /**
+     * @type {Array.<Object>} each item must have 'name' and 'directiveName' properties
+     */
     $scope.widgets = [
-        {
-            name: 'Pi Calculator',
-            directiveName: 'dd-widget-picalc'
-        },
-        {
-            name: 'Yahoo Finance Quotes',
-            directiveName: 'dd-widget-yfiquotes'
-        }
+        widgetPicalcDef,
+        widgetYfiquotesDef
     ];
 
     /**

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @fileoverview
+ * @fileoverview Controller for YfiQuotes widget
  */
 
 'use strict';
@@ -21,5 +21,9 @@
 dashDemo.app.controller('WidgetYfiquotesController', ['$scope', 'events', 'util', function ($scope, events, util) {
 
     $scope.__name = 'widget-yfiquotes-controller';
+
+    $scope.updateValue = function () {
+        $scope.ticks = $scope.widgetInstance.widget.getNextValue();
+    };
 
 }]);

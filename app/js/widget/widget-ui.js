@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @fileoverview
+ * @fileoverview Directive for the base widget
  */
 
 'use strict';
@@ -47,6 +47,7 @@ dashDemo.app.directive('ddWidget', ['$compile', function ($compile) {
     function linker(scope, $el, attrs) {
         console.log('widget linked');
         scope.closeWidget = angular.bind(null, closeWidget, scope, $el);
+        $el.addClass(scope.getUid());
 
         var $titleEl = createTitle(),
             $closeBtnEl = createCloseBtn(),

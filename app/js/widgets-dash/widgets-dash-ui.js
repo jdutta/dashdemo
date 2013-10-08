@@ -26,16 +26,15 @@ dashDemo.app.directive('ddWidgetsDash', ['$compile', function ($compile) {
     /**
      * Create a widget directive, add to dom and compile it.
      *
-     * @param uniqWidget
+     * @param widgetInstance
      */
-    function addWidgetToDom(uniqWidget) {
-        console.log('will create widget dom and add to dash', uniqWidget);
+    function addWidgetToDom(widgetInstance) {
 
         // Prepare the widget directive. Create a new child scope of this scope and put the widget info in there.
         // Compile the directive using the new scope.
-        var $widgetEl = angular.element('<div dd-widget '+uniqWidget.widget.directiveName+'></div>'),
+        var $widgetEl = angular.element('<div dd-widget '+widgetInstance.widget.directiveName+'></div>'),
             childScope = _scope.$new(true);
-        childScope.uniqWidget = uniqWidget;
+        childScope.widgetInstance = widgetInstance;
 
         _$el.append($widgetEl);
         $compile($widgetEl)(childScope);
@@ -52,7 +51,7 @@ dashDemo.app.directive('ddWidgetsDash', ['$compile', function ($compile) {
     return {
         restrict: 'A',
         replace: true,
-        scope: {},
+        scope: true,
         link: linker,
         templateUrl: 'templates/widgets-dash.html',
         controller: 'WidgetsDashController'

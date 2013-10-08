@@ -13,17 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @fileoverview Controller for PiCalc widget
+ * @fileoverview Widget definition: Yahoo Finance Quotes
  */
 
 'use strict';
 
-dashDemo.app.controller('WidgetPicalcController', ['$scope', '$timeout', 'events', 'util', function ($scope, $timeout, events, util) {
+dashDemo.app.factory('widgetYfiquotesDef', [function () {
 
-    $scope.__name = 'widget-picalc-controller';
-
-    $scope.updateValue = function () {
-        $scope.simulatedPi = $scope.widgetInstance.widget.getNextValue();
+    var me = {
+        name: 'Yahoo Finance Quotes',
+        directiveName: 'dd-widget-yfiquotes'
     };
 
+    // This will come from a simulator or ideally an output port (in Malhar terminology)
+    me.getNextValue = function () {
+        return {
+            'YHOO': (34 + 2*Math.random() - 1).toFixed(2),
+            'GOOG': (880 + 10*Math.random() - 5).toFixed(2)
+        };
+    };
+
+    return me;
 }]);
