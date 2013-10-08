@@ -18,21 +18,22 @@
 
 'use strict';
 
-dashDemo.app.controller('WidgetsDashController', ['$scope', 'events', 'util', function ($scope, events, util) {
+dashDemo.app.directive('ddWidgetPicalc', ['$compile', function ($compile) {
 
-    function handleWidgetAdded(widget) {
-        var uniqWidget = {
-            uid: util.getUniqueId(),
-            widget: widget
-        };
-
-        $scope.addWidgetToDom(uniqWidget);
+    function linker (scope, $el, attrs) {
+        console.log('picalc widget linked', scope);
     }
 
-    $scope.__name = 'widgets-dash-controller';
-
-    $scope.$on(events.ADD_WIDGET_D, function ($evt, widget) {
-        handleWidgetAdded(widget);
-    });
-
+    return {
+        restrict: 'A',
+        require: 'ddWidget',
+        // scope: false means not to create another isolated scope, so the scope that was used to compile this
+        // directive stays in effect. same as not specifying it at all.
+        //scope: false,
+        replace: true,
+        link: linker,
+        templateUrl: 'templates/widget-picalc.html',
+        controller: 'WidgetPicalcController'
+    };
 }]);
+

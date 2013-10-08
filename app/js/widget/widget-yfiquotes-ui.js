@@ -18,21 +18,19 @@
 
 'use strict';
 
-dashDemo.app.controller('WidgetsDashController', ['$scope', 'events', 'util', function ($scope, events, util) {
+dashDemo.app.directive('ddWidgetYfiquotes', ['$compile', function ($compile) {
 
-    function handleWidgetAdded(widget) {
-        var uniqWidget = {
-            uid: util.getUniqueId(),
-            widget: widget
-        };
-
-        $scope.addWidgetToDom(uniqWidget);
+    function linker (scope, $el, attrs) {
+        console.log('yfiquotes widget linked', scope);
     }
 
-    $scope.__name = 'widgets-dash-controller';
-
-    $scope.$on(events.ADD_WIDGET_D, function ($evt, widget) {
-        handleWidgetAdded(widget);
-    });
-
+    return {
+        restrict: 'A',
+        require: 'ddWidget',
+        replace: true,
+        link: linker,
+        templateUrl: 'templates/widget-yfiquotes.html',
+        controller: 'WidgetYfiquotesController'
+    };
 }]);
+

@@ -25,8 +25,26 @@ body {
 }
 
 .dd-widget-container {
+    position: relative;
     display: inline-block;
     width: 300px;
     height: 200px;
     border: 1px solid red;
+}
+
+.dd-widget-container .dd-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+.dd-widget-container .dd-widget-control-panel {
+    position: absolute;
+    bottom: 0;
+}
+
+.dd-widget-picalc .dd-widget-picalc-data {
+    position: absolute;
+    top: 30px;
 }

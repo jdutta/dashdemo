@@ -33,7 +33,7 @@ dashDemo.app.directive('ddWidgetsDash', ['$compile', function ($compile) {
 
         // Prepare the widget directive. Create a new child scope of this scope and put the widget info in there.
         // Compile the directive using the new scope.
-        var $widgetEl = $('<div dd-widget '+uniqWidget.widget.directiveName+'></div>'),
+        var $widgetEl = angular.element('<div dd-widget '+uniqWidget.widget.directiveName+'></div>'),
             childScope = _scope.$new(true);
         childScope.uniqWidget = uniqWidget;
 

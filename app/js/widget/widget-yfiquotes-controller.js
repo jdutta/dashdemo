@@ -18,21 +18,8 @@
 
 'use strict';
 
-dashDemo.app.controller('WidgetsDashController', ['$scope', 'events', 'util', function ($scope, events, util) {
+dashDemo.app.controller('WidgetYfiquotesController', ['$scope', 'events', 'util', function ($scope, events, util) {
 
-    function handleWidgetAdded(widget) {
-        var uniqWidget = {
-            uid: util.getUniqueId(),
-            widget: widget
-        };
-
-        $scope.addWidgetToDom(uniqWidget);
-    }
-
-    $scope.__name = 'widgets-dash-controller';
-
-    $scope.$on(events.ADD_WIDGET_D, function ($evt, widget) {
-        handleWidgetAdded(widget);
-    });
+    $scope.__name = 'widget-yfiquotes-controller';
 
 }]);

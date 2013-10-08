@@ -18,19 +18,51 @@
 
 'use strict';
 
+// This is a base widget directive.
+// This offers common functionality like close, start and stop actions.
+// The controller can define some common functions in the scope which will be shared with the specific directive.
 dashDemo.app.directive('ddWidget', ['$compile', function ($compile) {
 
-    function linker (scope, $el, attrs) {
-        console.log('widget linked', scope);
+    function closeWidget(scope, $el) {
+        $el.remove();
+        scope.$destroy(); // manually destroy because scope for this was manually created new.
+    }
+
+    function createTitle() {
+        return angular.element('<header>Widget: {{ getTitle() }}</header>');
+    }
+
+    function createCloseBtn() {
+        return angular.element('<span class="dd-close" ng-click="closeWidget()">&times;</span>');
+    }
+
+    function createControlPanel() {
+        return angular.element(
+            '<div class="dd-widget-control-panel">' +
+                '<span class="dd-start-btn" ng-hide="streamingStarted" ng-click="startStreamingInternal()">Start</span>' +
+                '<span class="dd-stop-btn" ng-show="streamingStarted" ng-click="stopStreamingInternal()">Stop</span>' +
+            '</div>');
+    }
+
+    function linker(scope, $el, attrs) {
+        console.log('widget linked');
+        scope.closeWidget = angular.bind(null, closeWidget, scope, $el);
+
+        var $titleEl = createTitle(),
+            $closeBtnEl = createCloseBtn(),
+            $controlPanelEl = createControlPanel();
+
+        $el.prepend($titleEl).prepend($closeBtnEl).append($controlPanelEl);
+
+        // compile the appended elements as they have ng-xyz directives
+        $compile($titleEl)(scope);
+        $compile($closeBtnEl)(scope);
+        $compile($controlPanelEl)(scope);
     }
 
     return {
         restrict: 'A',
-        replace: true,
-        // false means not to create another isolated scope, so the scope that was used to compile this directive stays in effect
-        scope: false,
         link: linker,
-        templateUrl: 'templates/widget.html',
         controller: 'WidgetController'
     };
 }]);
