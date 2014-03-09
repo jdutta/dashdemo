@@ -14,17 +14,17 @@ body {
     width: 200px;
     padding: 10px;
     background-color: #d2d2d2;
-}
 
-.dd-widgets-gallery ul {
-    list-style-type: none;
-    padding: 0;
-}
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
-.dd-widgets-gallery li {
-    display: inline-block;
-    margin-bottom: 5px;
-    cursor: pointer;
+    li {
+        display: inline-block;
+        margin-bottom: 5px;
+        cursor: pointer;
+    }
 }
 
 .dd-widgets-container {
@@ -47,22 +47,26 @@ body {
     background-color: white;
     border: 1px solid #dddddd;
     border-radius: 5px;
+
+    .dd-close {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        cursor: pointer;
+        width: 10px;
+        height: 19px;
+        padding: 0px 4px;
+    }
+
+    .dd-widget-control-panel {
+        position: absolute;
+        bottom: 0;
+        cursor: pointer;
+    }
 }
 
-.dd-widget-container .dd-close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    cursor: pointer;
-}
-
-.dd-widget-container .dd-widget-control-panel {
-    position: absolute;
-    bottom: 0;
-    cursor: pointer;
-}
-
-.dd-widget-picalc .dd-widget-data,  .dd-widget-yfiquotes .dd-widget-data {
+.dd-widget-picalc .dd-widget-data,
+.dd-widget-yfiquotes .dd-widget-data {
     position: absolute;
     top: 30px;
 }
