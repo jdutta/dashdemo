@@ -24,6 +24,19 @@ module.exports = function (grunt) {
 
         watch: {},
 
+        compass: {
+            options: {
+                sassDir: './app/assets/sass',
+                cssDir: './app/assets/css',
+                imagesDir: './app/assets/images',
+                javascriptsDir: './app/js',
+                importPath: './app/3rdparty',
+                relativeAssets: true,
+                force: true
+            },
+            dist: {}
+        },
+
         connect: {
             app: {
                 options: {
@@ -39,6 +52,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-compass');
 
     // alias for jshint
     grunt.registerTask('lint', 'jshint');
